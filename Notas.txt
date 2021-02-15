@@ -1,0 +1,58 @@
+Utilizar o num2words para criar o modelo em python de forma mais fácil e dinâmica
+Python :
+    https://imasters.com.br/back-end/criando-um-servidor-http-web-com-python
+    https://developer.mozilla.org/pt-BR/docs/Learn/Common_questions/Como_configurar_um_servidor_de_testes_local
+
+
+JavaScript:
+    https://extenso.js.org/ -- biblioteca para ajustar o número automaticamente
+
+
+
+'''''
+function Extenso(numero) {
+
+    var retorno = "";
+
+    var auxiliar1 = ["zero", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove", "dez", "onze", "doze", "treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove"];
+    var auxiliar2 = ["dez", "vinte", "trinta", "quarenta", "cinqüenta", "sessenta", "setenta", "oitenta", "noventa"];
+    var centenas = ["cento", "duzentos", "trezentos", "quatocentos", "quinhentos", "seiscentos", "novecentos"];
+    var unidades = ["cem", "mil"];
+
+    if (numero > 99) {
+
+        retorno = 'Não posso calcular';
+
+    } else {
+
+        if (numero < 20) {
+
+            retorno = auxiliar1[numero];
+
+        } else {
+
+            var temp = numero.toString().split('');
+
+            var primeiro_numero = temp[0];
+
+            var segundo_numero = temp[1];
+
+            retorno = auxiliar2[primeiro_numero - 1]
+
+            if (segundo_numero > 0) {
+
+                retorno += " e " + auxiliar1[primeiro_numero];
+
+            }
+
+        }
+
+    }
+
+    return retorno;
+
+}
+
+console.log(Extenso(12));
+
+''''
