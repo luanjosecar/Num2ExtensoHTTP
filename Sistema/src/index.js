@@ -2,19 +2,20 @@ const { request, response } = require('express');
 const express = require('express');
 const {uuid} = require('uuidv4');
 
-const {Extenso} = require('./functions');
+require('./modules')();
 
 const app = express();
 app.use(express.json());
 
 
 // sdfdfsdf
-app.get('/', (request, response) => {
-    const {Number} = request.query;
-    const number = Number;
-    //const number = Extenso(Number);
+app.get('/:numero', (request, response) => {
+    const {numero} = request.params;
+    console.log(numero);
+    const extenso = Extenso(numero);
     
-    return response.json({"teste":number});
+    return response.json({"extenso":extenso});
+    
 });
 
 

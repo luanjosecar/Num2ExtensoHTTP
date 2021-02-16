@@ -1,7 +1,10 @@
 
-function Extenso(numero) {
 
-    var retorno = "";
+module.exports = function() {
+    
+    this.Extenso = function(numero) {
+
+        var retorno = "";
     var controle = "";
     var negativo = 0;
 
@@ -89,5 +92,4 @@ function Extenso(numero) {
     }
 }
 
-num = '1234';
-console.log(Extenso(num));
+};
