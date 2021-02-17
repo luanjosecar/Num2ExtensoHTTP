@@ -10,7 +10,7 @@ module.exports = function () {
         var negativo = 0;
 
         var parametros = [["um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove", "dez", "onze", "doze", "treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove"],
-        ["dez", "vinte", "trinta", "quarenta", "cinqüenta", "sessenta", "setenta", "oitenta", "noventa"],
+        ["dez", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"],
         ["cento", "duzentos", "trezentos", "quatocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos"]];
         var unidades = ["cem", "mil e "];
 
