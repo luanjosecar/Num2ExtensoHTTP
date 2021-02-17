@@ -12,7 +12,7 @@
   Node.js v -14.15
  
   - Para conseguir conferir a versão instalada em seu computador basta rodar no terminal
-  -
+  
   ```shell
   node -v
   ```
