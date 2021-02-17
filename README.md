@@ -41,7 +41,13 @@
  
  ## Docker
  
- A imagem para o docker pode ser encontrada no repositório luanjosecar/server:latest
+ A imagem para o docker pode ser encontrada no repositório luanjosecar/num2extenserver ou por :
+
+ ```shell
+ docker pull luanjosecar/num2extenserver
+ 
+ ```
+
  Para roda-la se é necessário colocar a porta para análise, por exemplo :
  
  ```shell

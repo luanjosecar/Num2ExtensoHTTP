@@ -7,9 +7,9 @@ function Extenso(numero) {
     var negativo = 0;
 
     var parametros = [ ["um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove", "dez", "onze", "doze", "treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove"],
-         ["dez", "vinte", "trinta", "quarenta", "cinqüenta", "sessenta", "setenta", "oitenta", "noventa"],
-         ["cento", "duzentos", "trezentos", "quatocentos", "quinhentos", "seiscentos","setecentos","oitocentos", "novecentos"] ];
-    var unidades = ["cem", " mil e "];
+         ["dez", "vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"],
+         ["cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos","setecentos","oitocentos", "novecentos"] ];
+    var unidades = ["cem", " mil"];
         
         if(numero[0]== '-'){
             negativo = 1;
@@ -28,26 +28,26 @@ function Extenso(numero) {
             
             var mod = 0;
             for(var i = numero.length-1; i>=0;i--){
+
                 // Reseta a variável de controle
                 controle = '';
+                dezenas = 0;
                 
                 // Controle base dos números para alocação 
                 if(numero[i] == 0){
                     controle += "";
                 }
                 else{
-                    controle = parametros[mod][numero[i]-1] ;
-                    if(i != numero.length-5){
-                        controle +=  " e " 
-                    }
+                    controle = parametros[mod][numero[i]-1];
                 }
 
-                //Tratamento para o caso do número 10
+                //Tratamento para o caso do número 10 e 10K
                 if(numero[i-1] == '1' && ( i == numero.length-1 || i == numero.length-4)){
                     controle = parametros[0][numero.substr(i-1,i+1)-1];
+                    dezenas = 1;
 
                     if( i == numero.length-4){
-                        controle =controle + ' '+  unidades[1];
+                        controle = controle + unidades[1];
                     }
 
                     i--;
@@ -57,12 +57,18 @@ function Extenso(numero) {
 
                 // tratamentopara o caso do numero 100
                 if(i == numero.length-3 && numero.substr(numero.length-3) == 100){
-                    controle = unidades[0] + " e "  ;
+                    controle = unidades[0]  ;
                 }
 
-                // Adiciona o mil no sistema
+                // Adiciona o "mil" e o "e" na string
                 if( i == numero.length-4){
-                    controle =controle.substr(0, controle.length-2) + unidades[1];
+                    controle  += unidades[1];
+                    if(numero[i]!=0){
+                        controle = " e " + controle;
+                    }
+                }
+                else if(i <= numero.length-1 &&  numero[i] != 0  ){
+                    controle = " e " + controle;
                 }
                 
                 // Controle o mod para as unidades
@@ -80,9 +86,7 @@ function Extenso(numero) {
 
         }
     // Tratamento da variavel
-    if(retorno.substr(retorno.length-3) == ' e '){
-        retorno = retorno.substr(0,retorno.length-3)
-    }
+    retorno = retorno.substring(3)
 
     if(negativo == 1){
         return retorno = "menos " + retorno;
@@ -120,7 +124,7 @@ function TestarSistema(){
     
 
     var writeStream = fs.createWriteStream('./tests/output.txt');
-    var i = 90000;
+    var i = 0000;
     var extenso = '';
     while (i<= 99999){
         // This pipes the POST data to the file
@@ -139,7 +143,7 @@ function TestarSistema(){
 
 
 
-//num = '20000';
+//num = '16254';
 //console.log(Extenso(num));
 //console.log(VarCheck(num));
 
