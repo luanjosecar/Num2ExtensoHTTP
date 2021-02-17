@@ -9,7 +9,7 @@ function Extenso(numero) {
     var parametros = [ ["um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove", "dez", "onze", "doze", "treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove"],
          ["dez", "vinte", "trinta", "quarenta", "cinqüenta", "sessenta", "setenta", "oitenta", "noventa"],
          ["cento", "duzentos", "trezentos", "quatocentos", "quinhentos", "seiscentos","setecentos","oitocentos", "novecentos"] ];
-    var unidades = ["cem", "mil "];
+    var unidades = ["cem", " mil e "];
         
         if(numero[0]== '-'){
             negativo = 1;
@@ -28,17 +28,18 @@ function Extenso(numero) {
             
             var mod = 0;
             for(var i = numero.length-1; i>=0;i--){
-                /*
-                console.log("I = " +i);
-                console.log("mode = " + mod);
-                console.log("Numero = " +numero[i]);
-                */
+                // Reseta a variável de controle
+                controle = '';
+                
                 // Controle base dos números para alocação 
                 if(numero[i] == 0){
                     controle += "";
                 }
                 else{
-                    controle = parametros[mod][numero[i]-1] + " e " ;
+                    controle = parametros[mod][numero[i]-1] ;
+                    if(i != numero.length-5){
+                        controle +=  " e " 
+                    }
                 }
 
                 //Tratamento para o caso do número 10
@@ -73,6 +74,7 @@ function Extenso(numero) {
                 }
 
                 retorno =  controle + retorno;
+                
                 
             }
 
@@ -135,8 +137,8 @@ function TestarSistema(){
 
 
 
-num = '-999';
-//console.log(typeof Extenso(num));
+//num = '20000';
+//console.log(Extenso(num));
 //console.log(VarCheck(num));
 
 TestarSistema();
