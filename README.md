@@ -16,13 +16,15 @@
   ```shell
   node -v
   ```
-  Possuindo os requisitos necessários basta rodar dentro do arquivo principal :
+  Possuindo os requisitos necessários basta rodar:
  
   ```shell
+  git clone https://github.com/luanjosecar/Num2ExtensoHTTP.git
+  cd .\Num2ExtensoHTTP\servidorHttp\
   node .\src\index.js
   ```
  
-  ou
+  ou ao final
  
   ```shell
   npm start
