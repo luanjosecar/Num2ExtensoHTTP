@@ -1,3 +1,4 @@
+const fs = require('fs');
 
 function Extenso(numero) {
 
@@ -106,6 +107,45 @@ function VarCheck(numero){
 
 }
 
-num = '-99999';
-console.log(Extenso(num));
-console.log(VarCheck(num));
+function TestarSistema(){
+    
+    fs.writeFile("./output.txt", '', function(err) {
+        if(err) {
+            return console.log(err);
+        }
+        console.log("Limpar Arquivo");
+    }); 
+    
+
+    var writeStream = fs.createWriteStream('./output.txt');
+    var i = 90000;
+    var extenso = '';
+    while (i<= 99999){
+        // This pipes the POST data to the file
+        writeStream.write(i.toString())
+        writeStream.write(" = ")
+        writeStream.write(Extenso(i.toString()));
+        writeStream.write('\n');
+        console.log(i);
+        i++;
+        
+    }
+    
+}
+
+
+
+num = '-999';
+//console.log(typeof Extenso(num));
+//console.log(VarCheck(num));
+
+TestarSistema();
+
+
+//var writeStream = fs.createWriteStream('./output.txt');
+//var endLine = '\n';
+//var number = Extenso(num);
+// This pipes the POST data to the file
+//writeStream.write(number);
+//writeStream.write(endLine);
+
