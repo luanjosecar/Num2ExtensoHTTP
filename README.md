@@ -2,6 +2,8 @@
 
   Projeto para o desenvolvimento de um servidor HTTP que retorne a excrita por extenso de um valor numérico dado em uma requisição GET.
   
+  - A saida escrita é dada no modelo json : *{"extenso": valorPorExtenso}*
+  
 ## Usando
 
   Para que o código consiga ser rodado forma fluida é aconselhado possuir :
@@ -25,6 +27,17 @@
   ```
   
   Feito isso o servidor HTTP será iniciado na porta 3000, possibilintando seu acesso então por http://localhost:3000.
+  
+##Exemplos de caso
+  
+  **Input** : *http://localhost:30000/123*
+  **Output** : *{"extenso" : "cento e vinte e três"}*
+  
+ Para os casos de request POST, PUT e DELETE temos um retorno de status 405 para solicitações não permitidas. Já para os casos fora do range da aplicação o status é de 415 para formatos não suportados
+ 
+ ##Docker
+ 
+ 
   
   
   
