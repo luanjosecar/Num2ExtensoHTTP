@@ -8,18 +8,21 @@
   Node.js v -14.15
   
   - Para conseguir conferir a versão instalada em seu computador basta rodar no terminar
-  '''shell
+  - 
+  ```shell
   node -v
-  '''
+  ```
   Possuindo os requisitos necessários basta rodar dentro do arquivo principal :
-  '''shell
+  
+  ```shell
   node .\src\index.js
-  '''
+  ```
+  
   ou
   
-  '''shell
+  ```shell
   npm start
-  '''
+  ```
   
   Feito isso o servidor HTTP será iniciado na porta 3000, possibilintando seu acesso então por http://localhost:3000.
   
