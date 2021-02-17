@@ -89,5 +89,23 @@ function Extenso(numero) {
     }
 }
 
-num = '1234';
+
+function VarCheck(numero){
+
+    if(Number(numero) != 'NaN' && Number.isInteger(Number(numero))){
+        if(numero <= 99999 && numero >= -99999){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    else{
+        return false;
+    }
+
+}
+
+num = '-99999';
 console.log(Extenso(num));
+console.log(VarCheck(num));

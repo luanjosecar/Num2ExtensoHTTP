@@ -12,15 +12,26 @@ app.use(express.json());
 app.get('/:numero', (request, response) => {
     const {numero} = request.params;
     console.log(numero);
-    const extenso = Extenso(numero);
+    console.log(Extenso(numero));
+    console.log(ChecarNumero(numero));
+    //const extenso = Extenso(numero);
     
-    return response.json({"extenso":extenso});
-    
+    //return response.json({"extenso":extenso});
+
+    const check = ChecarNumero(numero);
+    switch(check){
+        case true:
+            return response.json({"extenso":Extenso(numero)});
+        case false:
+            return response.status(204).send();
+    }
+
 });
 
 
 app.post('/', (request, response) => {
-    return response.status(204).send()
+    //return response.json({"erro":"operação não implementada"});
+    return response.status(204).send();
 });
 
 app.put('/' , (request,response) => {
